@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Press+Start+2P&family=Sekuya&display=swap');
+
+body {
+    background-color: rgb(199, 175, 175);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.press-start-2p-regular {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(236, 56, 56);
+    text-decoration: underline;
+    text-shadow: 3px 3px 1px rgb(0, 0, 0);
+    text-align: center;
+}
+
+.contenedor-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 20px;
+    width: 70%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 0px rgb(0, 0, 0);
+}
+
+.tarea-input {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.tarea-input label {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#boton-agregar {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgb(9, 172, 9);
+    color: rgb(255, 255, 255);
+    border: none;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px rgb(0, 0, 0);
+}
+
+#nueva-tarea {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 3px 3px 0px rgb(0, 0, 0);
+}
+
+.lista-tareas-contenedor {
+    width: 100%;
+    padding: 0;
+}
+
+#lista-tareas {
+    list-style: none;
+    padding: 0;
+}
+
+#lista-tareas li {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    font-size: 1em;
+}
+
+.ancho-tarea {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 0.5em 0;
+    cursor: pointer;
+}
+
+.ancho-tarea:hover {
+    background-color: rgb(122, 122, 122);
+}
+
+#lista-tareas li input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-left: 10px;
+}
+
+.botones-finales {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+#boton-eliminar-terminadas {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgb(216, 84, 8);
+    color: rgb(255, 255, 255);
+    border: none;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px rgb(0, 0, 0);
+}
+
+#boton-eliminar-todas {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgb(223, 19, 5);
+    color: rgb(255, 255, 255);
+    border: none;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px rgb(0, 0, 0);
+}
+
+footer {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.footer_1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.footer_2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    color: rgb(235, 43, 43);
+}
+
+@media (max-width: 800px) {
+    .contenedor-principal {
+        width: 90%;
+    }
+
+    .botones-finales {
+        width: 100%;
+        gap: 10px;
+    }
+
+    #boton-agregar,
+    #boton-eliminar-terminadas,
+    #boton-eliminar-todas {
+        width: 100%;
+        flex: 1 1 auto;
+    }
+
+    #nueva-tarea {
+        flex: 1 1 100%;
+    }
+}

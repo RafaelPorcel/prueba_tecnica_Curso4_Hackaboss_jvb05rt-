@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi lista de tareas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="press-start-2p-regular">Mi lista de tareas</h1>
+    </header>
+    <main class="contenedor-principal">
+        <section class="tarea-input">
+            <label for="nueva-tarea">Nueva tarea:</label>
+            <input type="text" id="nueva-tarea" placeholder="Agregar nueva tarea...">
+            <button id="boton-agregar">Agregar tarea</button>
+        </section>
+        <section class="lista-tareas-contenedor">
+            <ul id="lista-tareas">
+                <li>
+                    <label class="ancho-tarea">
+                        <input type="checkbox"> Comprar el pan
+                    </label>
+                </li>
+                <li>
+                    <label class="ancho-tarea">
+                        <input type="checkbox"> Hacer la prueba técnica 4 de Hackaboss
+                    </label>
+                </li>
+                <li>
+                    <label class="ancho-tarea">
+                        <input type="checkbox"> Cambiar la pila al reloj
+                    </label>
+                </li>
+                <li>
+                    <label class="ancho-tarea">
+                        <input type="checkbox"> Llamar al médico
+                    </label>
+                </li>
+                <li>
+                    <label class="ancho-tarea">
+                        <input type="checkbox"> Imprimir fotos del viaje a la playa
+                    </label>
+                </li>
+                <li>
+                    <label class="ancho-tarea">
+                        <input type="checkbox"> LLamar al seguro del coche
+                    </label>
+                </li>
+                <li>
+                    <label class="ancho-tarea">
+                        <input type="checkbox"> Preparar tupper de macarrones para el día siguiente
+                    </label>
+                </li>
+                <li>
+                    <label class="ancho-tarea">
+                        <input type="checkbox"> Llevar el traje a la tintorería
+                    </label>
+                </li>
+            </ul>
+        </section>
+        <section class="botones-finales">
+            <button id="boton-eliminar-terminadas">Eliminar tareas completadas</button>
+            <button id="boton-eliminar-todas">Eliminar todas las tareas</button>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer_1">Lista de tareas de Rafael Porcel Llobregat</p>
+        <p class="footer_2">Bootcam FullStack - Hackaboss 2026</p>
+    </footer>
+</body>
+
+</html>

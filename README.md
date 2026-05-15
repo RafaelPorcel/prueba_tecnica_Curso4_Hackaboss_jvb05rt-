@@ -1,40 +1,80 @@
-# Mi Lista de Tareas - Hackaboss
+# 📝 Mi Lista de Tareas - Hackaboss
 
-Este proyecto es una aplicación web sencilla y funcional de **Lista de Tareas (To-Do List)** desarrollada como parte del Bootcamp FullStack de Hackaboss. Permite a los usuarios gestionar sus tareas diarias de forma eficiente con una interfaz clara y responsiva.
+Este proyecto es una aplicación web de tipo **To-Do List (Lista de Tareas)** desarrollada como parte del Bootcamp FullStack de Hackaboss.
 
-## 🚀 Características
-
-- **Agregar Tareas:** Interfaz intuitiva para añadir nuevas tareas a la lista.
-- **Gestión de Estado:** Posibilidad de marcar tareas como completadas mediante checkboxes.
-- **Limpieza Masiva:**
-  - Botón para eliminar únicamente las tareas que ya han sido completadas.
-  - Botón para vaciar la lista completa.
-- **Diseño Responsivo:** Adaptado para una visualización óptima tanto en escritorio como en dispositivos móviles (ajuste automático para pantallas menores a 800px).
-- **Estética Retro:** Uso de tipografías estilo "pixel art" para un toque visual distintivo.
-
-## 🛠️ Tecnologías Utilizadas
-
-- **HTML5:** Estructura semántica del documento.
-- **CSS3:** Diseño, maquetación (Flexbox) y animaciones básicas.
-  - **Google Fonts:** Integración de fuentes personalizadas (*Press Start 2P*, *Oswald*).
-
-## 📂 Estructura del Proyecto
-
-```text
-├── index.html          # Estructura principal de la aplicación
-└── css/
-    └── styles.css      # Estilos y diseño responsivo
-```
-
-## 💻 Instalación y Uso
-
-1. **Descargar** los archivos del proyecto en tu máquina local.
-2. Abrir el archivo `index.html` en cualquier navegador web moderno (Chrome, Firefox, Edge, Safari, etc.) para visualizar y utilizar la aplicación de forma inmediata.
-
-## ✍️ Autor
-
-- **Rafael Porcel Llobregat**
-- Estudiante del **Bootcamp FullStack - Hackaboss 2026**
+Permite al usuario gestionar tareas de forma sencilla e intuitiva, aplicando **JavaScript para manipulación del DOM**, junto con HTML y CSS para la interfaz y el diseño responsive.
 
 ---
-Producido con fines académicos para la Prueba Técnica 4.
+
+## 🚀 Funcionalidades
+
+### ➕ Añadir tareas
+- Permite crear nuevas tareas dinámicamente.
+- Inserción de elementos `<li>` en el DOM.
+- Limpieza automática del input tras añadir una tarea.
+- Validación para evitar tareas vacías o con solo espacios (`trim()`).
+
+---
+
+### ⌨️ Añadir tareas con Enter
+- Permite añadir tareas pulsando la tecla **Enter**.
+- Mejora la experiencia de usuario evitando depender solo del botón.
+
+---
+
+### ☑️ Marcar tareas como completadas
+- Cada tarea incluye un checkbox interactivo.
+- Uso de la propiedad `checked` para detectar tareas completadas.
+- Preparado para gestión de estado de cada tarea.
+
+---
+
+### 🗑️ Eliminar tareas completadas
+- Permite eliminar únicamente las tareas marcadas.
+- Selección de checkboxes con `querySelectorAll`.
+- Eliminación del elemento padre (`<li>`) con `.parentElement.remove()`.
+
+---
+
+### 💣 Eliminar todas las tareas
+- Limpia completamente la lista de tareas.
+- Selección de todos los `<li>` del contenedor.
+- Eliminación masiva del contenido del DOM.
+
+---
+
+### ⚠️ Validación de input
+- Bloqueo de tareas vacías.
+- Uso de `trim()` para evitar entradas inválidas.
+- Mensaje de alerta informativo al usuario.
+
+---
+
+## 🎨 Diseño y experiencia de usuario
+
+- Estética retro estilo **pixel art**.
+- Tipografías personalizadas con Google Fonts:
+  - Press Start 2P
+  - Oswald
+- Diseño responsive adaptado a dispositivos móviles (< 800px).
+- Efectos visuales con sombras, hover y estructura tipo “card”.
+
+---
+
+## ⚙️ Tecnologías utilizadas
+
+- **HTML5** → estructura semántica del proyecto.
+- **CSS3** → diseño, flexbox y responsive design.
+- **JavaScript (ES6)** → lógica e interactividad.
+- **Google Fonts** → tipografía personalizada.
+
+---
+
+## 📂 Estructura del proyecto
+
+PRUEBA_TECNICA_CURSO_4
+├── index.html
+├── css/
+│   └── styles.css
+└── js/
+    └── script.js

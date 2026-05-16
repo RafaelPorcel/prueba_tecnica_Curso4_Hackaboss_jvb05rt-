@@ -1,53 +1,79 @@
 const listaTareas = document.getElementById("lista-tareas");
 const tareaNueva = document.getElementById("nueva-tarea");
 const botonAgregarTarea = document.getElementById("boton-agregar");
-const botonEliminarTareasCompletadas = document.getElementById("boton-eliminar-terminadas")
-const botonEliminarTodasTareas = document.getElementById("boton-eliminar-todas");
+const botonEliminarCompletadas = document.getElementById("boton-eliminar-terminadas");
+const botonEliminarTodas = document.getElementById("boton-eliminar-todas");
 
-function agregarTArea() {
-    const textoDeInput = tareaNueva.value;
 
-    if (textoDeInput.trim() === "") {
-        alert("Debes introducir una tarea, no un campo vacío");
+let toDos = [];//Array para guardar las tareas
+
+function agregarTarea() {
+
+    const texto = tareaNueva.value;//Guardar el valor de lo que se escriba en el input 
+
+    if (texto.trim() === "") {
+        alert("Debes escribir una tarea");
         return;
     }
-    
-    const liNuevo = document.createElement("li");
-    liNuevo.innerHTML = `
-        <label class="ancho-tarea">
-            <input class="tarea-completa" type="checkbox"> ${textoDeInput}
-        </label>
-    `
-    listaTareas.appendChild(liNuevo);
-    tareaNueva.value = "";
+
+    toDos.push({//Añadir al Array de toDos, un ojeto con el texto de la tarea y un atributo completes, siempre en false
+        text: texto,
+        completed: false
+    });
+
+    tareaNueva.value = "";//Limpiar el input
+    renderTodos();
 }
 
-botonAgregarTarea.addEventListener("click", agregarTArea);
+function renderTodos() {//Para borrar la lista y volver a escribir lo que tenga el Array en ese momento
 
-tareaNueva.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-        //cuando pulso la tecla enter dentro del input ocurre el mismo evento que cuando hago click en el boton agregar tarea
-        agregarTArea();
-    }
-})
+    listaTareas.innerHTML = "";//Limpiar la lista para no duplicar 
 
-botonEliminarTareasCompletadas.addEventListener("click", () => {
-    //me crea un Array con las tareas marcadas en el chekbox
-    const tareasCompletadasCheckbox = document.querySelectorAll('.tarea-completa');
+    toDos.forEach((todo) => {//Recorrer el array toDos
 
-    tareasCompletadasCheckbox.forEach(t => {
-        if(t.checked) {
-            t.parentElement.parentElement.remove();
+        const lineaTarea = document.createElement("li");//Se crea el elemento de etiqueta li con esa estructura
+        //si está completed el checkbox se le añade el atributo checked, asi sabemos si está marcado
+        lineaTarea.innerHTML = `
+            <label>
+                <input type="checkbox" ${todo.completed ? "checked" : ""}>
+                ${todo.text}
+            </label>
+        `;
+
+        //Cuando cambias checkbox
+        const checkbox = lineaTarea.querySelector("input");
+
+        checkbox.addEventListener("change", (e) => {
+            actualizarTarea(todo, e.target.checked);//Si se cambia el estado del chekbox 
+        });
+
+        function actualizarTarea(todo, estado) {//Le llega cada elemento del array y el estado
+            todo.completed = estado;//guarda el estado en el bojeto del array
         }
+
+        listaTareas.appendChild(lineaTarea);//Crear los elementos del DOM
     });
+}
+
+botonAgregarTarea.addEventListener("click", agregarTarea);
+
+tareaNueva.addEventListener("keydown", (e) => {//tambien que funcione con la tecla Enter
+    if (e.key === "Enter") {
+        agregarTarea();
+    }
 });
 
-botonEliminarTodasTareas.addEventListener("click", () => {
-    const todasLasTareas = document.querySelectorAll("#lista-tareas li");
+//Esto filtra los completados, y vuelve a renderizarlos solo esos, no borra, deja las tareas "incompletas"
+function eliminarCompletadas() {
+    toDos = toDos.filter(tarea => tarea.completed === false);
+    renderTodos();
+}
 
-    todasLasTareas.forEach(t => {
-        t.remove();
-    });
+//Renderiza un array vacío nuevo
+function eliminarTodas() {
+    toDos = [];
+    renderTodos();
+}
 
-});
-
+botonEliminarCompletadas.addEventListener("click", eliminarCompletadas);
+botonEliminarTodas.addEventListener("click", eliminarTodas);

@@ -34,7 +34,7 @@ function renderTodos() {//Para borrar la lista y volver a escribir lo que tenga 
         const lineaTarea = document.createElement("li");//Se crea el elemento de etiqueta li con esa estructura
         //si está completed el checkbox se le añade el atributo checked, asi sabemos si está marcado
         lineaTarea.innerHTML = `
-            <label>
+            <label class="ancho-tarea">
                 <input type="checkbox" ${todo.completed ? "checked" : ""}>
                 ${todo.text}
             </label>
